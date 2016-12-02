@@ -1,17 +1,19 @@
+// EMC Boys
+
 #include <iostream>
 #include <stdio.h>
 
 const int MOD = 1000000007;
 
 // Função que calcula o binomial (2n n)
-unsigned long int binomial(unsigned long int n, unsigned long int k)
+unsigned long long int binomial(unsigned long long int n, unsigned long long int k)
 {
-	unsigned long int resultado = 1;
+	unsigned long long int resultado = 1;
 
 	if (k > n - k)
 		k = n - k;
 
-	for (unsigned long int i = 0; i < k; ++i)
+	for (unsigned long long int i = 0; i < k; i++)
 	{
 		resultado *= (n - i);
 		resultado /= (i + 1);
@@ -21,9 +23,9 @@ unsigned long int binomial(unsigned long int n, unsigned long int k)
 }
 
 // Função que calcula o número de catalan
-unsigned long int catalan(unsigned long int n)
+unsigned long long int catalan(unsigned long long int n)
 {
-	unsigned long int c = binomial(2*n, n);
+	unsigned long long int c = binomial(2*n, n);
 
 	return c/(n+1);
 }
@@ -32,16 +34,16 @@ unsigned long int catalan(unsigned long int n)
 int main()
 {
 	int q;
-	unsigned long int n, resto = 0;
+	unsigned long long int n, resto = 0;
 
 	scanf("%d", &q);
 
 	while(q--){
-		scanf("%lu", &n);
+		scanf("%llu", &n);
 
 		resto = catalan(n) % MOD;
 
-		printf("%lu\n", resto);
+		printf("%llu\n", resto);
 	}
 
 	return 0;
